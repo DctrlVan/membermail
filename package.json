@@ -1,0 +1,21 @@
+{
+  "name": "membermail",
+  "version": "0.0.1",
+  "description": "Send email to members",
+  "main": "membermail.js",
+  "dependencies": {
+    "dotenv": "^2.0.0",
+    "read-yaml": "^1.0.0",
+    "sendgrid": "^4.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "sendgrid"
+  ],
+  "author": "Kiko Marrs",
+  "license": "MIT"
+}
