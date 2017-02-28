@@ -1,13 +1,16 @@
 var dotenv = require('dotenv');
 dotenv.load();
+
+var prefix = process.argv[2]
+
 var readYaml = require('read-yaml');
-var members = readYaml.sync('members_test.yml').members;
+var members = readYaml.sync('db/members_' + prefix + '.yml').members;
 
 var metadata = require('./metadata.json');
 
 var sg   = require('sendgrid')(process.env.SENDGRID_TOKEN);
 var template = require('./template');
-var emailBody = template.templateReader("template.html");
+var emailBody = template.templateReader('templates/template_' + prefix + '.html');
 
 function sendEmails() {
   for (i = 0; i < members.length; i++) {
