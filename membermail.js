@@ -29,13 +29,12 @@ function sendEmails() {
     to_email = new helper.Email(member.Email);
     personalization.addTo(to_email);
 
-    substitution = new helper.Substitution("%firstName%", member.First);
-    personalization.addSubstitution(substitution);
+    for (let field in members[0]){
+      substitution = new helper.Substitution("%" + field + "%", member[field]);
+      personalization.addSubstitution(substitution);
+    }
 
     substitution = new helper.Substitution("%amount%", metadata.amount);
-    personalization.addSubstitution(substitution);
-
-    substitution = new helper.Substitution("%addr%", member.BTCAddr);
     personalization.addSubstitution(substitution);
 
     mail.addPersonalization(personalization);
